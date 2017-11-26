@@ -1,37 +1,29 @@
 ## Welcome to GitHub Pages
+here is my edited section of the document
 
-You can use the [editor on GitHub](https://github.com/UnoHacma/unohacma.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### BIOS
+BIOS, stands for Basic Input Output System, is a software stored on a small memory chip on the motherboard. BIOS is use to change the functionality of a device and also help in the process of troubleshooting. The BIOS is responsible for the POST (POST stands for "Power On Self Test." It is a diagnostic program built into the computer's hardware that tests different hardware components before the computer boots up. The POST process is run on both Windows and Macintosh computers.) which makes it the first software to run when a computer is started. The BIOS firmware settings are always saved and recoverable even after power has been removed from the device.
+Note: BIOS is pronounced as by-oss and is sometimes referred to as the System BIOS, ROM BIOS, or PC BIOS
+* What Is the BIOS Used For?
+BIOS instruct the computer on how to perform a number of basic functions such as booting and keyboard control. It is also used to identify and configure the hardware in a computer such as the hard drive, floppy drive, optical drive, CPU, memory, etc.
+* How to Access BIOS
+The BIOS is accessed and configured through the BIOS Setup Utility. Unlike an operating system like Windows, which is often downloaded or obtained on a disc, and needs to be installed by the user or manufacturer, BIOS is pre-installed when the computer is purchased.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+  ### EFI and UEFI
+Standing for Extensible Firmware Interface, EFI is a new firmware standard developed by Intel and introduced with the release of IA-64 that improves the features available in the BIOS. The EFI specification has been made into a general standard known as UEFI. The EFI system partition (ESP) is a partition on a data storage device (usually a hard disk drive or solid-state drive) that is used by computers adhering to the Unified Extensible Firmware Interface (UEFI). When a computer is booted, UEFI firmware loads files stored on the ESP to start installed operating systems and other utilities. An ESP needs to be formatted with a file system whose specification is based on the FAT file system and maintained as part of the UEFI specification; therefore, the file system specification is independent from the original FAT specification. EFI can be used to get rid of the boot loader, which allows the firmware to select the operating system to enables vendors to create drivers that cannot be reverse engineered to contains a small shell that can be run at boot that allows a small and manageable working environment without anything on the computer. New computers use UEFI firmware instead of the traditional BIOS. Both are low-level software that starts when you boot your PC before booting your operating system, but UEFI is a more modern solution, supporting larger hard drives, faster boot times, more security features, and-conveniently-graphics and mouse cursors. There are newer PCs that ship with UEFI still refer to it as the “BIOS” to avoid confusing people who are used to a traditional PC BIOS. Even if your PC uses the term “BIOS”, modern PCs you buy today almost certainly ship with UEFI firmware instead of a BIOS.
 
-### Markdown
+ * Why the BIOS Is Outdated
+The BIOS has been around for a long time, and hasn’t evolved much. Even MS-DOS PCs released in the 1980s had a BIOS. But still modification have been made to improve the BIOS along all those years. Some extensions were developed, including ACPI, the Advanced Configuration and Power Interface. This allows the BIOS to more easily configure devices and perform advanced power management functions, like sleep. But the BIOS hasn’t advanced and improved nearly as much as other PC technology has since the days of MS-DOS. But still The BIOS has some limitations. For example tt can only boot from drives of 2.1 TB or less, while 3 TB drives are common now, and a computer with a BIOS can’t boot from them. That limitation is due to the way the BIOS’s Master Boot Record system works. The BIOS must run in 16-bit processor mode, and only has 1 MB of space to execute in. It has trouble initializing multiple hardware devices at once, which leads to a slower boot process when initializing all the hardware interfaces and devices on a modern PC. The BIOS has needed replacement for a long time. Intel started work on the Extensible Firmware Interface (EFI) specification back in 1998. Apple chose EFI when it switched to the Intel architecture on its Macs in 2006, but other PC manufacturers didn’t follow. In 2007, Intel, AMD, Microsoft, and PC manufacturers agreed on a new Unified Extensible Firmware Interface (UEFI) specification. This is an industry-wide standard managed by the Unified Extended Firmware Interface Forum, and isn’t solely driven by Intel. UEFI support was introduced to Windows with Windows Vista Service Pack 1 and Windows 7. The vast majority of computers you can buy today now use UEFI rather than a traditional BIOS.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+   ### Master boot record
+A master boot record (MBR) is a special type of boot sector at the beginning of partitioned computer mass storage devices like fixed disks or removable drives intended for use with IBM PC-compatible systems and beyond. The MBR, the most important data structure on the disk and it is created when the disk is partitioned. The MBR contains a small amount of executable code called the master boot code, the disk signature, and the partition table for the disk. At the end of the MBR there is a 2-byte structure called a signature word or end of sector marker, which is always set to 0x55AA. A signature word also marks the end of an extended boot record (EBR) and the boot sector.
+The disk signature is a unique number at offset 0x01B8, that identifies the disk to the operating system. Windows 2000 uses the disk signature as an index to store and retrieve information about the disk in the registry subkey: HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices
+ * Master Boot Code
+The master boot code performs couple activities like: Scans the partition table for the active partition; Finds the starting sector of the active partition; Loads a copy of the boot sector from the active partition into memory; Transfers control to the executable code in the boot sector. If the master boot code cannot complete these functions, the system displays one of the following error messages like; Invalid partition table; Error loading operating system; Missing operating system
+Note: There is no MBR on a floppy disk. The first sector on a floppy disk is the boot sector. Although every hard disk contains an MBR, the master boot code is used only if the disk contains the active, primary partition.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/UnoHacma/unohacma.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+ ### GUID partition type
+* What is a GUID Partition Table disk?
+The GUID Partition Table disk architecture was introduced as part of the Extensible Firmware Interface initiative. GUID Partition Table is a new disk architecture that expands on the older Master Boot Record (MBR) partitioning scheme that has been common to Intel-based computers. A partition is a contiguous space of storage on a physical or logical disk that functions as though it were a physically separate disk. Partitions are visible to the system firmware and the installed operating systems. Access to a partition is controlled by the system firmware and the operating system that is currently active.
+* Why do we need GUID Partition Table?
+GUID Partition Table disks can grow to a very large size. In July 2001, the Microsoft implementation supports a hard disk of up to 18 EB (512 KB LBAs). The number of partitions on a GUID Partition Table disk is not constrained by temporary schemes such as container partitions as defined by the MBR Extended Boot Record. The Microsoft implementation of GUID Partition Table is limited to 128 partitions. However, it is important to note that one partition is used for the EFI System Partition, one for the Microsoft Reserved and two more are used if you use dynamic disks. This leaves 124 partitions for data use. The GUID Partition Table disk partition format is well defined and fully self-identifying. Data that is critical to the operating system is located in partitions and not in partitioned or "hidden" sectors. GUID Partition Table does not allow for hidden sectors or partitions. GUID Partition Table disks use primary and backup partition tables for redundancy and CRC32 fields for improved partition data structure integrity. The GUID Partition Table partition format uses version number and size fields for future expansion.Each GUID Partition Table partition has a unique identification GUID and a partition content type, so no coordination is necessary to prevent partition identifier collision. Each GUID Partition Table partition has a 36-character Unicode name, which means that any software can present an easily readable name for the partition without any additional understanding of the partition.
